@@ -64,8 +64,7 @@ public class MainMenuScreen extends Screen{
 
 	@Override
 	public void backButton() {
-		// TODO Auto-generated method stub
-		
+		android.os.Process.killProcess(android.os.Process.myPid());
 	}
 
 }

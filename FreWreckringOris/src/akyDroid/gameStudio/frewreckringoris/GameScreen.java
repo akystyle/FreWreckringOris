@@ -17,17 +17,32 @@ public class GameScreen extends Screen {
 
 	GameState state = GameState.Ready;
 
+	/*
+	private static Background myBG1, myBG2;
+	private static Player myPlayer;
+	private static HeliBoy heliBoy,heliBoy2;
+	*/
+	
+	
 	int lifeleft = 1;
-	Paint myPainter;
+	Paint myLargePainter,mySmallPainter;
 
 	public GameScreen(Game game) {
 		super(game);
 
-		myPainter = new Paint();
-		myPainter.setTextSize(30);
-		myPainter.setTextAlign(Paint.Align.CENTER);
-		myPainter.setAntiAlias(true);
-		myPainter.setColor(Color.WHITE);
+		
+//Defining Paint objects 		
+		myLargePainter= new Paint();
+		myLargePainter.setTextSize(100);
+		myLargePainter.setTextAlign(Paint.Align.CENTER);
+		myLargePainter.setAntiAlias(true);
+		myLargePainter.setColor(Color.WHITE);
+		
+		mySmallPainter = new Paint();
+		mySmallPainter.setTextSize(30);
+		mySmallPainter.setTextAlign(Paint.Align.CENTER);
+		mySmallPainter.setAntiAlias(true);
+		mySmallPainter.setColor(Color.WHITE);
 
 	}
 
@@ -136,7 +151,7 @@ public class GameScreen extends Screen {
 	private void drawGameOverUI() {
         Graphics g = game.getGraphics();
         g.drawRect(0, 0, 1281, 801, Color.BLACK);
-        g.drawString("GAME OVER", 640, 300, myPainter);
+        g.drawString("GAME OVER", 640, 300, mySmallPainter);
 	}
 
 	private void drawPausedUI() {
@@ -155,14 +170,14 @@ public class GameScreen extends Screen {
 
         g.drawARGB(155, 0, 0, 0);
         g.drawString("Tap each side of the screen to move in that direction.",
-                640, 300, myPainter);
+                640, 300, mySmallPainter);
 		
 	}
 
 	private void GameRestart() {
 		// Set all variables to null. You will be recreating them in the
         // constructor.
-        myPainter = null;
+        mySmallPainter = null;
 
         // Call garbage collector to clean up memory.
         System.gc();
