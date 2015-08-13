@@ -12,9 +12,9 @@ public class Assets {
 	public static Music myThemeMusic;
 	
 	public static void load(Game myGame){
-		//myThemeMusic = myGame.getAudio().createMusic("menutheme.mp3");
-		//myThemeMusic.setLooping(true);
-		//myThemeMusic.setVolume(0.85f);
-		//myThemeMusic.play();
+		myThemeMusic = myGame.getAudio().createMusic("menutheme.mp3");
+		myThemeMusic.setLooping(true);
+		myThemeMusic.setVolume(0.85f);
+		myThemeMusic.play();
 	}
 }

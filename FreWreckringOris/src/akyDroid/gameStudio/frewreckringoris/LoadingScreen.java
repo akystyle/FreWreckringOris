@@ -13,8 +13,8 @@ public class LoadingScreen extends Screen{
 	@Override
 	public void update(float deltaTime) {
 		Graphics myGraphics = game.getGraphics();
-		Assets.myMenu = myGraphics.newImage("menu.jpg", ImageFormat.RGB565);
-		Assets.myBackground = myGraphics.newImage("background.jpg", ImageFormat.RGB565);
+		Assets.myMenu = myGraphics.newImage("menu.png", ImageFormat.RGB565);
+		Assets.myBackground = myGraphics.newImage("background.png", ImageFormat.RGB565);
 		Assets.myCharacter = myGraphics.newImage("character.png", ImageFormat.ARGB4444);
 		Assets.myCharacter2 = myGraphics.newImage("character2.png", ImageFormat.ARGB4444);
 		Assets.myCharacter3 = myGraphics.newImage("character3.png", ImageFormat.ARGB4444);
@@ -33,10 +33,10 @@ public class LoadingScreen extends Screen{
 		Assets.myTilegrassLeft = myGraphics.newImage("tilegrassleft.png", ImageFormat.RGB565);
 		Assets.myTilegrassRight = myGraphics.newImage("tilegrassright.png", ImageFormat.RGB565);
 		
-		Assets.myButton = myGraphics.newImage("button.png", ImageFormat.RGB565);
+		Assets.myButton = myGraphics.newImage("button.jpg", ImageFormat.RGB565);
 		
 		
-		Assets.myClickSound = game.getAudio().createSound("click.ogg");
+		//Assets.myClickSound = game.getAudio().createSound("click.ogg");
 		
 		game.setScreen(new MainMenuScreen(game));
 	}

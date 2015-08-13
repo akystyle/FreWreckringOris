@@ -55,13 +55,13 @@ public class Game extends GameMain{
 	
 	@Override
 	public void onResume(){
-		super.onResume();
+		super.onResume(); 
 		Assets.myThemeMusic.play();
 	}
 	
 	@Override
 	public void onPause(){
-		super.onPause();
+		super.onPause(); 
 		Assets.myThemeMusic.pause();
 	}
 }

@@ -54,7 +54,7 @@ public class GameGraphics implements Graphics {
 				throw new RuntimeException("Error loading Image: '" + fileName
 						+ "'");
 		} catch (IOException e) {
-			throw new RuntimeException("Error loading Image: '" + fileName
+			throw new RuntimeException("I/O Error loading Image: '" + fileName
 					+ "'");
 		} finally {
 			try {
