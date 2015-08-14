@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
-
 //import akyDroid.gameFramework.Game;
 import akyDroid.gameFramework.Graphics;
 import akyDroid.gameFramework.Image;
@@ -24,7 +22,7 @@ public class GameScreen extends Screen {
 	GameState state = GameState.Ready;
 	private static Background myBG1, myBG2;
 	private static Player myPlayer;
-	private static HeliBoy heliBoy,heliBoy2;
+	public static Heliboy heliBoy,heliBoy2;
 	private Animation myPlayerAnim, myHeliBoyAnim;
 	private Image currentSprite, myCharacterImage,myCharacterImage2,myCharacterImage3,myHeliBoyImage,myHeliBoyImage2,myHeliBoyImage3,myHeliBoyImage4,myHeliBoyImage5;
 	private ArrayList myTileArray = new ArrayList();
