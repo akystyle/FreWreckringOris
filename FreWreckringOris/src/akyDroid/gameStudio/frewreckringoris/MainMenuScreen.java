@@ -13,6 +13,7 @@ public class MainMenuScreen extends Screen{
 		super(game);
 	}
 
+	@SuppressWarnings("unused")
 	@Override
 	public void update(float deltaTime) {
 		Graphics myGraphics = game.getGraphics();

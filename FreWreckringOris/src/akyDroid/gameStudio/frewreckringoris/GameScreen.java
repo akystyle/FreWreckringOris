@@ -3,15 +3,13 @@ package akyDroid.gameStudio.frewreckringoris;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-
-//import akyDroid.gameFramework.Game;
+import akyDroid.gameFramework.Game;
 import akyDroid.gameFramework.Graphics;
 import akyDroid.gameFramework.Image;
 import akyDroid.gameFramework.Input.TouchEvent;
 import akyDroid.gameFramework.Screen;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.view.animation.Animation;
 
 public class GameScreen extends Screen {
 
@@ -25,7 +23,7 @@ public class GameScreen extends Screen {
 	public static Heliboy heliBoy,heliBoy2;
 	private Animation myPlayerAnim, myHeliBoyAnim;
 	private Image currentSprite, myCharacterImage,myCharacterImage2,myCharacterImage3,myHeliBoyImage,myHeliBoyImage2,myHeliBoyImage3,myHeliBoyImage4,myHeliBoyImage5;
-	private ArrayList myTileArray = new ArrayList();
+	private ArrayList<Tile> myTileArray = new ArrayList<Tile>();
 	int lifeleft = 1;
 	Paint myLargePainter,mySmallPainter;
 
@@ -36,7 +34,7 @@ public class GameScreen extends Screen {
 //Initialize game objects
 		myBG1 = new Background(0,0);
 		myBG2 = new Background(2160,0);
-		myPlayer = new Player;
+		myPlayer = new Player();
 		heliBoy = new Heliboy(340,360);
 		heliBoy2 = new Heliboy(700,360);
 		
@@ -83,12 +81,13 @@ public class GameScreen extends Screen {
 	}
 
 	
+	@SuppressWarnings({ "resource", "unused" })
 	private void loadMap() {
 		ArrayList<String> rows = new ArrayList<String>();
 		int width = 0;
 		int height = 0;
 		
-		Scanner myScanner = new Scanner(Game.map);
+		Scanner myScanner = new Scanner(akyDroid.gameStudio.frewreckringoris.Game.map);
 		while (myScanner.hasNextLine()){
 			String row = myScanner.nextLine();
 			if(row == null)
@@ -208,11 +207,11 @@ public class GameScreen extends Screen {
 		myPlayer.update();
 		if(myPlayer.isJumped()){
 			currentSprite = Assets.myCharacterJump;
-		}else if(myPlayer.jumped() == false && myPlayer.isDucked() == false){
+		}else if(myPlayer.isJumped() == false && myPlayer.isDucked() == false){
 			currentSprite = myPlayerAnim.getImage();
 		}
 		
-		ArrayList projectiles = myPlayer.getProjectiles();
+		ArrayList<?> projectiles = myPlayer.getProjectiles();
 		for(int i =0; i< projectiles.size();i++){
 			Projectile tempProjectile = (Projectile) projectiles.get(i);
 			if(tempProjectile.isVisible() == true){
@@ -236,7 +235,7 @@ public class GameScreen extends Screen {
 
 	private void updateTiles() {
 		for (int i=0;i<myTileArray.size();i++){
-			Tile t = myTileArray.get(i);
+			Tile t = (Tile) myTileArray.get(i);
 			t.update();
 		}
 		
@@ -266,9 +265,9 @@ public class GameScreen extends Screen {
 		g.drawImage(Assets.myBackground, myBG2.getBgX(), myBG2.getBgY());
 		paintTiles(g);
 		
-		ArrayList projectiles = myPlayer.getProjectiles();
+		ArrayList<?> projectiles = myPlayer.getProjectiles();
 		for(int i = 0; i < projectiles.size(); i++){
-			Projectiles tempProjectile = (Projectile) projectiles.get(i);
+			Projectile tempProjectile = (Projectile) projectiles.get(i);
 			g.drawRect(tempProjectile.getX(), tempProjectile.getY(), 10, 5, Color.GREEN);
 		}
 		
@@ -360,6 +359,7 @@ public class GameScreen extends Screen {
 		
 	}
 
+	@SuppressWarnings("unused")
 	private void GameRestart() {
 		// Set all variables to null. You will be recreating them in the
         // constructor.
@@ -384,13 +384,11 @@ public class GameScreen extends Screen {
 
 	@Override
 	public void dispose() {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void backButton() {
-		// TODO Auto-generated method stub
 		pause();
 	}
 	

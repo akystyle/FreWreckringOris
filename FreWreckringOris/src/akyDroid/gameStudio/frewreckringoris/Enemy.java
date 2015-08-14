@@ -11,6 +11,7 @@ public class Enemy {
 	
 	private int movementSpeed;
 	
+	@SuppressWarnings("static-access")
 	public void update(){
 		follow();
 		centerX += speedX;
@@ -22,6 +23,7 @@ public class Enemy {
 		}
 	}
 	
+	@SuppressWarnings("static-access")
 	private void checkCollision(){
 		if(Rect.intersects(r, GameScreen.getPlayer().rect1) || Rect.intersects(r, GameScreen.getPlayer().rect2) || Rect.intersects(r, GameScreen.getPlayer().rect3) || Rect.intersects(r, GameScreen.getPlayer().rect4)){
 			
