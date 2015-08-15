@@ -23,6 +23,8 @@ public class Game extends GameMain{
 		
 		InputStream in = getResources().openRawResource(R.raw.map1);
 		map = convertStreamToString(in);
+
+		
 		
 		return new SplashLoadingScreen(this);
 	}

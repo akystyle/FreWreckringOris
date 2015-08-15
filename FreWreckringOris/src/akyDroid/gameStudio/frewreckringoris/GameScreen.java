@@ -3,6 +3,7 @@ package akyDroid.gameStudio.frewreckringoris;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
 import akyDroid.gameFramework.Game;
 import akyDroid.gameFramework.Graphics;
 import akyDroid.gameFramework.Image;
@@ -10,6 +11,8 @@ import akyDroid.gameFramework.Input.TouchEvent;
 import akyDroid.gameFramework.Screen;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.util.Log;
+import android.widget.Toast;
 
 public class GameScreen extends Screen {
 
@@ -98,6 +101,8 @@ public class GameScreen extends Screen {
 			}
 		}
 		height = rows.size();
+		
+		//Log.i("AKY_DEBUGGER", String.valueOf(height));
 		
 		for (int i =0; i < 12; i++){
 			String row = rows.get(i);
